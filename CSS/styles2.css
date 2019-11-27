@@ -1,0 +1,18 @@
+
+* {
+		box-sizing: border-box;
+}
+.container {
+		background: cadetblue;
+		padding: 30px 0;
+		border: 1px solid red;
+		text-align: center;
+
+}
+
+.container span {
+		border: 1px solid black;
+		display: inline-block;
+		width: 90%;
+
+}
