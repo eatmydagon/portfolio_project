@@ -11,19 +11,24 @@ html {
 	border: 3px solid red;
 }
 
-/* Font Styles ---------------------------------------------------*/
+/* ==========================================================
+====================== FONT STYLES ===========================
+=============================================================*/
 
 @font-face {
 		font-family: "Alex Brush";
 		src: url(../Fonts/AlexBrush-Regular.ttf) format("truetype");
 }
 
+/* ==========================================================
+====================== BASIC STYLES ===========================
+=============================================================*/
 
-/* Basic Styles ---------------------------------------------------*/
 
-/* Header ------------------------*/
+/* ================= HEADER - Basic Styles =====================
+=============================================================*/
 
-header {
+.header_banner {
 		background: linear-gradient(180deg, rgb(26, 141, 240), rgb(81, 148, 206)
 		            20%, transparent 70%);
 }
@@ -39,6 +44,12 @@ header h1 {
 		font-weight: 600;
 		font-size: 1.1rem;
 		color: rgb(11, 90, 249);
+}
+
+.primary_nav li,
+.secondary_nav li {
+		list-style: none;
+		text-align: center;
 }
 
 @media (max-width: 1000px) {
@@ -59,9 +70,11 @@ header h1 {
 		}
 }
 
-/* Main ------------------------*/
+/* ================= MAIN - Basic Styles =====================
+=============================================================*/
 
-div h2 {
+div h2,
+.main_description {
 		text-align: center;
 }
 
@@ -69,13 +82,14 @@ div h2 {
 		box-shadow: 0 0 5px 5px black;
 }
 
-/* Footer ------------------------*/
+/* ================= FOOTER - Basic Styles =====================
+=============================================================*/
 
 footer p {
 		font-weight: 700;
 }
 
-footer {
+.footer_banner {
 		background: radial-gradient(transparent, rgb(81, 148, 206) 90%),
 								url("../Images/footer_contact.webp") no-repeat center/40%;
 }
@@ -95,10 +109,6 @@ footer {
 }
 
 @media (max-width: 650px) {
-		footer {
-				background: radial-gradient(transparent, rgb(81, 148, 206) 90%),
-									  url("../Images/footer_contact.webp") no-repeat center top/47%;
-		}
 		.secondary_nav a {
 				font-size: 0.75rem;
 		}
@@ -107,7 +117,13 @@ footer {
 		}
 }
 
-/* Layout Styles ---------------------------------------------------*/
+/* ==========================================================
+====================== LAYOUT STYLES ===========================
+=============================================================*/
+
+
+/* ================= MAIN PAGE - Layout Styles ===================
+=============================================================*/
 
 .container_w80 {
 		width: 80%;
@@ -121,71 +137,101 @@ footer {
 .primary_nav a,
 .secondary_nav a {
 		display: block;
-		padding: 2px 5px 2px 10px;
+		padding: 5px 10px;
 }
 
-/* Header Layout ----------------*/
 
-header {
-		margin: 20px auto 0;
+/* ================= HEADER - Layout Styles ===================
+=============================================================*/
+
+.header_banner {
 		border-radius: 10px 10px 0 0;
 }
 
-header h1 {
-		margin: 5px 0;
-		padding: 5px 10px;
-		float: left;
+header {
+		display: flex;
+		padding: 20px 0;
+		justify-content: space-between;
+		align-items: center;
 }
 
-header nav {
-		float: right;
+.primary_nav {
+		display: flex;
+}
+
+header h1 {
+		padding: 5px 10px;
+		margin: 0;
+}
+
+.primary_nav {
+		padding: 10px 10px;
+		margin: 0;
 }
 
 .primary_nav li{
 		border-style: solid;
 		border-width: 0 0 0 2px;
 		border-color: grey;
+		padding: 0;
 }
 
-.primary_nav {
-		margin: 0;
-		padding: 10px 5px;
-}
+@media (max-width: 1100px) {
+		.container_w80 {
+				width: 90%;
+		}
 
-header h1,
-header nav,
-.primary_nav li {
-		display: inline-block;
-}
-
-@media (max-width: 1000px) {
 		header {
-				width: 95%;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
 		}
 }
 
 @media (max-width: 650px) {
-		header {
-				width: 100%;
-		}
-		.primary_nav li {
-				display: block;
-				border-style: none none solid none;
-				border-color: grey;
-				border-width: 2px;
-				padding: 0 0 5px 0;
-				margin: 0 0 2px 100px;
+		.container_w80 {
+				width: 95%;
 		}
 
+		header {
+				justify-content: space-between;
+				align-items: center;
+				flex-direction: row;
+				justify-content: space-between;
+		}
+
+		.primary_nav {
+				flex-direction: column;
+				padding: 0;
+				margin-right: 5%;
+		}
+		.primary_nav li{
+				border: none;
+		}
 }
 
-/* Main Layout ----------------*/
+/* ================= MAIN - Layout Styles ===================
+=============================================================*/
 
 main {
 		width: 80%;
 		margin: 35px auto 0;
+		display: flex;
+		flex-wrap: wrap;
 }
 
+section {
+		padding: 5px 10px;
+}
+
+.main_description {
+		flex-grow: 1;
+}
+
+.experience1,
+.experience2 {
+		flex: 1 50%;
+}
 
 figure {
 		margin: 15px;
@@ -203,24 +249,6 @@ figure {
 		border-radius: 50%;
 		padding: 5px;
 		border: 2px solid grey;
-}
-
-.experience1 {
-		float: left;
-		margin-right: 1.5%;
-		width: 60%;
-}
-
-.experience2 {
-		float: right;
-		margin-left: 1.5%;
-		width: 35%;
-}
-
-.clearfix::after {
-		content: " ";
-		display: table;
-		clear: both;
 }
 
 @media (max-width: 1000px) {
@@ -241,65 +269,63 @@ figure {
 		}
 }
 
-/* Footer Layout ----------------*/
+/* ================= FOOTER - Layout Styles ===================
+=============================================================*/
 
-footer {
-		margin: 0 auto 0;
-		height: 200px;
-		padding-top: 150px;
+.footer_banner {
+		padding: 15px;
 		border-radius: 0 0 15px 15px;
 }
 
-footer p {
-		margin-left: 10px;
+footer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 }
 
 footer p,
 footer nav,
-.secondary_nav li {
-		display: inline-block;
+.secondary_nav {
+		margin: 0;
+		padding: 5px;
 }
 
 .secondary_nav {
 		padding-left: 10px;
 }
 .secondary_nav li {
-		border-left-style: solid;
-		border-left-width: 3px;
-		border-left-color: grey;
+		border-bottom-style: solid;
+		border-bottom-width: 1.5px;
+		border-bottom-color: grey;
 }
 
-@media (max-width: 1000px) {
-		footer {
-				width: 95%;
-				height: 150px;
-				padding-top: 100px;
+@media (max-width: 1100px) {
+		.container_w80 {
+				width: 90%;
 		}
 }
 
 @media (max-width: 650px) {
 		footer {
-				width: 100%;
-				height: 75px;
-				margin: 20px 0 0 0;
-				padding-top: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-between;
 		}
-		footer p {
-				margin: 0 0 0 5px;
-				padding-bottom: 2px;
-		}
-		footer nav {
-				margin-left: 200px;
-		}
+
 		.secondary_nav {
-				margin: 8px 0;
+				display: flex;
+				margin: 0;
 		}
-		.secondary_nav li {
-				display: block;
-				border-style: none none solid none;
-				border-width: 0 0 2px 0;
-				border-color: grey;
-				padding: 0 0 4px 0;
-				margin: 2px 0 0 0;
-		}
+
+}
+
+/* ==========================================================
+====================== FLOAT CLEARFIX ===========================
+=============================================================*/
+
+.clearfix::after {
+		content: " ";
+		display: table;
+		clear: both;
 }
